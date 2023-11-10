@@ -1,0 +1,14 @@
+{
+    "builds":[
+        {
+            "src":"flaskWebApp.py",
+            "use":"@vercel/python" 
+        }
+    ],
+    "routes":[
+        {
+            "src":"/(.*)",
+            "dest":"flaskWebApp.py"
+        }
+    ]
+}

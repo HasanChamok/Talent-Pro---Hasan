@@ -1,0 +1,28 @@
+1.Setup a virtual environment
+    pip install virtualenv      [This is installing virtual environment in the storage]
+    python -m venv .venv        [Setting up a virtual environment that is named as .venv]
+    .venv\Scripts\activate      [activating the virtual environment]
+2.install scrapy        
+    pip install scrapy          [installing the scrapy in the virtual environment]    
+3.Now creating a scrapy project
+    scrapy startproject bookscraper     [starting a project named bookscraper]
+    cd bookscraper                      [Go inside the bookscraper folder]
+    cd bookscraper                      [Again go inside the bookscraper folder inside the bookscraper folder]
+    cd spiders                          [Going inside the spiders folder]
+4. Steps to webscrappe a website
+    scrapy genspider bookspider books.toscrape.com      [This command will start scrapping the books.toscrape.com url]
+                                                        [This command will also create a bookspider.py file in the folder
+                                                         that will be used to scrape files from the website]
+    pip install ipython                                 [Installing the ipython library]
+5. > go to scrapy.cfg and write the following line after default = bookscraper.settings
+    shell = ipython
+
+6. Type following commands in terminal:
+    scrapy shell                    [This will activate the scrapy shell]
+    fetch("link of the website")    [Give the link of the website inside the fetch function]
+    > All the page information will be stored in the response variable
+    > Now to get the objects from the page we have to write response.css()
+
+    response.css('article.product_pod').get()           [This will fetch all the information from article 's product_pod class 
+                                                        and store it in books variable]
+

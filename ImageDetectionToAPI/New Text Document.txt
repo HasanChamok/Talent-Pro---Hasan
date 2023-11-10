@@ -1,0 +1,1 @@
+return render_template("index.html", pred = ret, cat = val, vid_name = Vid.filename)

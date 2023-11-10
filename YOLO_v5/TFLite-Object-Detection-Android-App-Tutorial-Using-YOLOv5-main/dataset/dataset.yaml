@@ -1,0 +1,7 @@
+train: ../train/images
+val: ../valid/images
+
+
+nc: 3
+names: ['football', 'human', 'player']
+
