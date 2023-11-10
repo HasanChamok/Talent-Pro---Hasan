@@ -13,4 +13,10 @@
 4. Now the virtual environment is created. We have to install all the necessary libraries now by the following command
   > pip install -r requirements.txt       (This command will download all the necessary files that have been added in the requirements.txt file)
 
-5. Now open the file 'web
+5. Now open the file 'webNew.py' by the command --> python webNew.py
+
+6. After waiting for few minutes this will run and give a local ip address .
+
+7. Open the address to access the website
+
+8. Now select a **front facing image** of a boy or girl to detect the gender using this website.
