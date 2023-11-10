@@ -23,6 +23,9 @@
     > All the page information will be stored in the response variable
     > Now to get the objects from the page we have to write response.css()
 
-    response.css('article.product_pod').get()           [This will fetch all the information from article 's product_pod class 
+    books = response.css('article.product_pod').get()   [This will fetch all the information from article 's product_pod class 
                                                         and store it in books variable]
+
+    > If we want to fetch data for all the books than we have to run a for loop
+        and inside that for loop we have to run response.css() and put necessary values to fetch data
 
