@@ -30,7 +30,7 @@ def predict_image(f,filepath):
     class_ids = result.boxes.cls.tolist()
     
     #Finding the name of the classes of the corresponding class id
-    # class_names = [yolo.names[class_id] if class_id < len(yolo.names) else "Unknown Class" for class_id in class_ids] 
+    class_names = [yolo.names[class_id] if class_id < len(yolo.names) else "Unknown Class" for class_id in class_ids] 
     
     #Draw bounding box, confidence score and lables on the image
     detected_image = cv.cvtColor(result.orig_img, cv.COLOR_RGB2BGR)
@@ -38,8 +38,8 @@ def predict_image(f,filepath):
     for i in range(len(boxes)):
         box = boxes[i]
         confidence = confidences[i]
-        # label = class_names[i]
-        label = classes[i] if i < len(classes) else "Unknown"
+        label = class_names[i]
+        # label = classes[i] if i < len(classes) else "Unknown"
 
         
         #Draw bounding box
@@ -57,7 +57,7 @@ def predict_image(f,filepath):
     #prepare the json file
     response_data = {
         # 'Labels' : class_names,
-        'Labels': classes,
+        'Labels': label,
         'Confidence Score' :  confidences,
         'Boxes' : boxes
     }
