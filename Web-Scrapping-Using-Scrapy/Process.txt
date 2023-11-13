@@ -17,11 +17,11 @@
 5. > go to scrapy.cfg and write the following line after default = bookscraper.settings
     shell = ipython
 
-6. Type following commands in terminal:
+6. Type following commands in terminal: (don't have to change the directory)
     scrapy shell                    [This will activate the scrapy shell]
     fetch("link of the website")    [Give the link of the website inside the fetch function]
-    > All the page information will be stored in the response variable
-    > Now to get the objects from the page we have to write response.css()
+    > All the page information will be stored in the 'response' variable
+    > Now to get the objects from the page we have to write 'response.css()'
 
     books = response.css('article.product_pod').get()   [This will fetch all the information from article 's product_pod class 
                                                         and store it in books variable]
