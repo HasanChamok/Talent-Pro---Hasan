@@ -29,3 +29,6 @@
     > If we want to fetch data for all the books than we have to run a for loop
         and inside that for loop we have to run response.css() and put necessary values to fetch data
 
+7. After writing your code in the 'bookspider.py' you have to run the file:
+    > Go to parent folder ----> cd ../
+    > Type                ----> scrapy crawl bookspider         [scrapy crawl 'Name of the spider'  This will run the spider file] 
