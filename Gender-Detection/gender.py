@@ -75,13 +75,16 @@ def predict_video(f,filepath):
     
     fps = cap.get(cv.CAP_PROP_FPS) #Getting the FPS of the video
     frame_height = int(cap.get(cv.CAP_PROP_FRAME_HEIGHT)) #Getting the frame heght
-    frmae_width = int(cap.get(cv.CAP_PROP_FRAME_WIDTH)) #Getting the frame width
+    frame_width = int(cap.get(cv.CAP_PROP_FRAME_WIDTH)) #Getting the frame width
     
     # out = cv.VideoWriter(os.path.join(baesname,'Detected_Videos',f.filename),cv.VideoWriter.fourcc('M','J','P','G'),fps,(frmae_width,frame_height))
     # Define the codec and create a VideoWriter object to save the processed video
-    out = cv.VideoWriter(os.path.join(baesname, 'Detected_Videos', 'output.avi'),
-                                  cv.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps,
-                                  (frmae_width, frame_height))
+    # out = cv.VideoWriter(os.path.join(baesname, 'Detected_Videos', 'output.avi'),
+    #                               cv.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps,
+    #                               (frmae_width, frame_height))
+    #Define codec and video writer Object
+    fourcc = cv.VideoWriter_fourcc(*'mp4v')
+    out = cv.VideoWriter('output2.mp4', fourcc, 30, (frame_width, frame_height))
     
     #Loop through the video frames and process time
     while True:
