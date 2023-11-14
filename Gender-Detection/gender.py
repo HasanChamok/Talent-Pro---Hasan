@@ -44,12 +44,12 @@ def predict_image(f,filepath):
         
         #Draw bounding box
         x, y, w, h = map(int,box)
-        color = (255, 255, 0) #Drawing color line for the box
-        cv.rectangle(detected_image,(x,y),(w,h),color,2)
+        color = (255, 0, 0) #Drawing color line for the box
+        cv.rectangle(detected_image,(x,y),(w,h),color,4)
         
         #Add label and Confidence score
         label_text = f'{label} : {confidence:.2f}'
-        cv.putText(detected_image,label_text,(x,y-10),cv.FONT_HERSHEY_COMPLEX,0.9,color,2) 
+        cv.putText(detected_image,label_text,(x,y-40),cv.FONT_HERSHEY_PLAIN,0.9,color,5) 
     #Save the ditected Image
     detected_image_path = os.path.join(basepath,'Detected_Images',f.filename)
     cv.imwrite(detected_image_path,detected_image)
@@ -59,7 +59,7 @@ def predict_image(f,filepath):
         # 'Labels' : class_names,
         'Labels': label,
         'Confidence Score' :  confidences,
-        'Boxes' : boxes
+        'Boxes' : box
     }
     
     return jsonify(response_data)
