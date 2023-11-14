@@ -70,7 +70,7 @@ def predict():
 
                 #Define codec and video writer Object
                 fourcc = cv.VideoWriter_fourcc(*'mp4v')
-                out = cv.VideoWriter('output1.mp4', fourcc, 30, (frame_width, frame_height))
+                out = cv.VideoWriter('output4.mp4', fourcc, 24.0, (frame_width, frame_height))
                 # out = cv.VideoWriter(os.path.join(baesname, 'Detected_Videos', 'output.mp4'), fourcc, 30, (frame_width, frame_height))
                 # Get video dimensions from the first frame
 
@@ -86,6 +86,7 @@ def predict():
                     cv.waitKey(1)
 
                     res_plotted = results[0].plot()
+                    # res_plotted = results.plot()
                     cv.imshow('result', res_plotted)
 
                     # Write the frame to the output video
@@ -131,7 +132,7 @@ def display(filename):
 
 def get_frame():
     folder_path = os.getcwd()
-    mp4files = 'output1.mp4'
+    mp4files = 'output4.mp4'
     video = cv.VideoCapture(mp4files)
     while True:
         success,frame = video.read()
@@ -144,6 +145,7 @@ def get_frame():
 @app.route('/video_feed')
 def video_feed():
     return Response(get_frame(),mimetype='multipart/x-mixed-replace; boundary=frame')
+    # return Response(get_frame(), mimetype='video/mp4')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0",port=5000)

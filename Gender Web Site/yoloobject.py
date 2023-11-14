@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('new.html')
+    return render_template('index.html')
 
 Allowed_Image_Extenxion = ['jpg','jpeg','png']
 Allowed_Video_Extension = ['mp4','avi']
@@ -54,7 +54,7 @@ def predict():
                 #Opening the Image file
                 file = Image.open(filepath)
                 #putting the result file in the result 
-                result = yolo.predict(file, save=True, conf=0.4, iou=0.7, project="runs/detect")
+                result = yolo.predict(file, save=True, project="runs/detect")
                 
                 return display(f.filename)
                 
@@ -102,7 +102,7 @@ def predict():
     
     latest_subfolder = max(subfolders, key=lambda x: os.path.getctime(os.path.join(folder_path,x)))
     image_path = folder_path + '/' + latest_subfolder + '/' + f.filename
-    return render_template('new.html',image_path=image_path)
+    return render_template('index.html',image_path=image_path)
 
 
 @app.route('/<path:filename>')                
