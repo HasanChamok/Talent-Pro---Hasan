@@ -44,12 +44,12 @@ def predict_image(f,filepath):
         
         #Draw bounding box
         x, y, w, h = map(int,box)
-        color = (255, 255, 0) #Drawing color line for the box
+        color = (255, 0, 0) #Drawing color line for the box
         cv.rectangle(detected_image,(x,y),(w,h),color,2)
         
         #Add label and Confidence score
         label_text = f'{label} : {confidence:.2f}'
-        cv.putText(detected_image,label_text,(x,y-10),cv.FONT_HERSHEY_COMPLEX,0.9,color,2) 
+        cv.putText(detected_image,label_text,(x+10,y+40),cv.FONT_HERSHEY_COMPLEX,0.9,color,3) 
     #Save the ditected Image
     detected_image_path = os.path.join(basepath,'Detected_Images',f.filename)
     cv.imwrite(detected_image_path,detected_image)
@@ -84,7 +84,7 @@ def predict_video(f,filepath):
     #                               (frmae_width, frame_height))
     #Define codec and video writer Object
     fourcc = cv.VideoWriter_fourcc(*'mp4v')
-    out = cv.VideoWriter('output2.mp4', fourcc, 30, (frame_width, frame_height))
+    out = cv.VideoWriter('output3.mp4', fourcc, 30, (frame_width, frame_height))
     
     #Loop through the video frames and process time
     while True:
@@ -119,12 +119,12 @@ def predict_video(f,filepath):
             )
             
             x, y, w, h = map(int, box)
-            color = (255,255,0)
+            color = (255,0,0)
             cv.rectangle(frame,(x,y),(w,h),color,2)
             
             #Adding Label and Confidence Score
             label_text = f'{label} : {confidence }'
-            cv.putText(frame,label_text,(x,y-10),cv.FONT_HERSHEY_COMPLEX,0.9,color,2)
+            cv.putText(frame,label_text,(x+10,y+40),cv.FONT_HERSHEY_COMPLEX,0.9,color,3)
             
             
         # Get the video filename without extension (assuming video_file.filename contains the original filename)
