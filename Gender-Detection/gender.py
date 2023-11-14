@@ -49,7 +49,7 @@ def predict_image(f,filepath):
         
         #Add label and Confidence score
         label_text = f'{label} : {confidence:.2f}'
-        cv.putText(detected_image,label_text,(x,y-40),cv.FONT_HERSHEY_PLAIN,0.9,color,5) 
+        cv.putText(detected_image,label_text,(x+10,y+40),cv.FONT_HERSHEY_COMPLEX,0.9,color,3) 
     #Save the ditected Image
     detected_image_path = os.path.join(basepath,'Detected_Images',f.filename)
     cv.imwrite(detected_image_path,detected_image)
@@ -124,7 +124,7 @@ def predict_video(f,filepath):
             
             #Adding Label and Confidence Score
             label_text = f'{label} : {confidence }'
-            cv.putText(frame,label_text,(x,y-10),cv.FONT_HERSHEY_COMPLEX,0.9,color,2)
+            cv.putText(frame,label_text,(x+10,y+40),cv.FONT_HERSHEY_COMPLEX,0.9,color,3)
             
             
         # Get the video filename without extension (assuming video_file.filename contains the original filename)
